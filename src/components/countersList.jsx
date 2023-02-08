@@ -22,27 +22,29 @@ const CountersList = () => {
   }
 
   const handleIncrement = (id) => {
-    setCounters(
-      counters.map((count) => {
-        if (count.id === id) {
-          count.value += 1
-          return count
+    const incrementedCounters = counters.map((count) => {
+      if (count.id === id) {
+        return {
+          ...count,
+          value: count.value + 1,
         }
-        return count
-      })
-    )
+      }
+      return count
+    })
+    setCounters(incrementedCounters)
   }
 
   const handleDecrement = (id) => {
-    setCounters(
-      counters.map((count) => {
-        if (count.id === id) {
-          count.value -= 1
-          return count
+    const decrementedCounters = counters.map((count) => {
+      if (count.id === id) {
+        return {
+          ...count,
+          value: count.value - 1,
         }
-        return count
-      })
-    )
+      }
+      return count
+    })
+    setCounters(decrementedCounters)
   }
 
   return (
